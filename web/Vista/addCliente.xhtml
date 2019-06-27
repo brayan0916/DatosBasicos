@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        
+                
+                
+               
+                 
+                
+               <h:form id="formNuevoCliente">
+                     <p:dialog id="dlgNuevoCliente" widgetVar="dialogNuevoCliente" resizable="false" showEffect="explode"
+                               hideEffect="explode" modal="true">
+                         <p:panelGrid columns="2" style="margin: 0 auto;">
+                             
+                             <p:outputLabel value="Nombres"/>
+                             <p:inputText value="#{cliente.nombre}"/>
+                             
+                              <p:outputLabel value="rfc"/>
+                              <p:inputText value="#{cliente.telefono}"/>
+                              
+                              
+                              </p:panelGrid>
+                         <p:commandButton value="Guardar" actionListener="#{cliente.allCliente()}"
+                                          
+                                          oncomplete="PF('dialogNuevoCliente').hide();"/>
+                         
+                         <p:commandButton value="Cancelar" oncomplete="PF('dialogNuevoCliente').hide();"/>
+                         </p:dialog>
+                 </h:form>
+                 
+                 
+          
+            
+                
+                
+           
+
+    </body>
+</html>
