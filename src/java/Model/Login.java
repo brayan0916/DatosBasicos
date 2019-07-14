@@ -1,5 +1,5 @@
 package Model;
-// Generated 13-jul-2019 18:21:01 by Hibernate Tools 4.3.1
+// Generated 14-jul-2019 8:04:24 by Hibernate Tools 4.3.1
 
 
 
@@ -11,12 +11,12 @@ public class Login  implements java.io.Serializable {
 
      private Integer idlogin;
      private String username;
-     private int pass;
+     private String pass;
 
     public Login() {
     }
 
-    public Login(String username, int pass) {
+    public Login(String username, String pass) {
        this.username = username;
        this.pass = pass;
     }
@@ -35,11 +35,11 @@ public class Login  implements java.io.Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    public int getPass() {
+    public String getPass() {
         return this.pass;
     }
     
-    public void setPass(int pass) {
+    public void setPass(String pass) {
         this.pass = pass;
     }
 

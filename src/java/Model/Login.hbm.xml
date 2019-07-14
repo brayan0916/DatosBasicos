@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 13-jul-2019 18:21:04 by Hibernate Tools 4.3.1 -->
+<!-- Generated 14-jul-2019 8:04:26 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Model.Login" table="login" catalog="datos" optimistic-lock="version">
         <id name="idlogin" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         <property name="username" type="string">
             <column name="username" length="16" not-null="true" />
         </property>
-        <property name="pass" type="int">
+        <property name="pass" type="string">
             <column name="pass" not-null="true" />
         </property>
     </class>

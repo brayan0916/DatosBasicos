@@ -14,20 +14,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-</script>
+       <div class="login">
  
  
-<h:form>        
+<h:form id="formlogin">        
     
      
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
@@ -35,17 +25,30 @@ and open the template in the editor.
     <p:panel header="Login" widgetVar="dlg" >
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="username" value="Username:" />
-            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
+            <p:inputText id="username" value="#{loginBean.usuario.username}" required="true" label="username" 
+                         requiredMessage="ESCRIBA USUARIO"/>
              
             <h:outputLabel for="password" value="Password:" />
-            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
+            <p:password id="pass" value="#{loginBean.usuario.pass}" required="true" label="password" 
+                        requiredMessage="ESCRIBA USUARIO"/>
              
             <f:facet name="footer">
-                <p:commandButton value="Login" update="growl" action="#{userLoginView.login}"
+                <p:commandButton value="Login" update="formlogin" action="#{loginBean.login(event)}"
                                  oncomplete="handleLoginRequest(xhr, status, args)" />
             </f:facet>  
         </h:panelGrid>
     </p:panel>    
 </h:form>
+            </div>
+         <script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            jQuery('#formlogin').effect("shake", {times:3}, 350);
+        }
+        else {
+           location.href = args.ruta;
+        }
+    }
+</script>
     </h:body>
 </html>
